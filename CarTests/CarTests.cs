@@ -11,6 +11,13 @@ namespace CarTests
 
 
         //TODO: constructor sets gasTankLevel properly
+        [TestMethod]
+        public void TestGasFromConstructor()
+        {
+            Car test_car = new Car("Toyota", "Prius", 10, 50);
+
+            Assert.AreEqual(10, test_car.GasTankLevel, .001);
+        }
 
 
         //TODO: gasTankLevel is accurate after driving within tank range
