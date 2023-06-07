@@ -40,6 +40,10 @@ namespace CarNS
             double gallonsUsed = milesAbleToTravel / MilesPerGallon;
             GasTankLevel -= gallonsUsed;
             Odometer += milesAbleToTravel;
+            if (GasTankLevel <= 0)
+            {
+                throw new ArgumentOutOfRangeException("The tank is empty");
+            }
         }
 
         public void AddGas(double gas)

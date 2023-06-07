@@ -24,11 +24,13 @@ namespace CarTests
 
         //TODO: gasTankLevel is accurate after attempting to drive past tank range
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TestGasBelowRange()
         {
             Car test_car = new Car("Toyota", "Prius", 10, 50);
+            test_car.Drive(750);
 
-            Assert.ThrowsException<System.ArgumentOutOfRangeException>(() => test_car.Drive(750));
+            Assert.Fail("The tank got empty while driving");
         }
 
         //TODO: can't have more gas than tank size, expect an exception
